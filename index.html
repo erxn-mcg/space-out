@@ -1,0 +1,170 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <meta property='og:image' content='https://i.imgur.com/Ej9WDdk.jpg'/>    
+    <meta property='og:title' content='tiMEbro'/>
+    <meta property='og:description' content='Website Logo'/>
+    <meta property='og:url' content='http://www.timebro.gq/'/>
+    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <title>Space Out</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn2.iconfinder.com/data/icons/business-office-icons/256/To-do_List-512.png"
+      type="image/x-icon"
+    />
+  </head>
+  <header>
+    
+  </header>
+  <body>
+    <div class="background"></div>
+    <button type="button" class="buttonTodo btn">
+      <img id=todoButton src="./assets/images/todo.png"></img>
+    </button>
+    <button type="button" class="buttonWeather btn">
+      <img id=weatherButton src="./assets/images/weather.png">
+    </button>
+    <button type="button" class="buttonSettings btn">
+      <img id=settingsButton src="./assets/images/settings.png"></img>
+    </button>
+    
+    <div class="buttonTimedate">
+        <div class="clock"></div>
+        <div class="date"></div>
+    </div>
+
+    <div class="timer">
+
+      <div class="display">
+        <h1 class="display__time-left">25:00</h1>
+        <p class="display__end-time"></p>
+      </div>
+      <div class="timer__controls">
+        <button data-time="1500" class="timer__button">Begin</button>
+        <button data-time="0" class="timer__button">Reset</button>
+        <button data-time="300" class="timer__button">Break</button>
+      </div>
+    </div>
+
+    <div class="todo">
+      <button type="button" class="buttonClose btn">
+        <p style="font-size: large; font-weight: bold;">X</p>
+      </button>
+      <h1>My Tasks</h1>
+        <header class="text-center text-light my-4">
+          <form class="search">
+            <input class="form-control m-auto" id="search" type="text" name="search" placeholder="Search Items" />
+  
+          </form>
+        </header>
+        <div class="dragscroll">
+          <ul class="list-group todos mx-auto text-light">
+          </ul>
+        </div>
+        <form class="add text-center my-4">
+          <input class="form-control m-auto" id="addTodo" type="text" name="add" placeholder="Add Item"/>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    <div class="settings">
+      <button type="button" class="buttonClose btn">
+        <p style="font-size: large; font-weight: bold;">X</p>
+      </button>
+      <h1>Settings</h1>
+      <form class="add text-center my-4" name="customForm" id="custom">
+        <input class="form-control m-auto" id="customTime" type="text" name="minutes" placeholder="Work Timer Duration">
+        <input type="submit" value="Submit">
+      </form>
+
+      <div class="alerts">
+        <form class="visual"> 
+          <h2> Notification on Completion?&nbsp;</h2>
+          <input class="form-control" type="radio" name="visual" id="yesV" value="1"><h3>Yes</h3>
+          <input class="form-control" type="radio" name="visual" id="noV" value="0"><h3>No</h3>
+        </form>
+        <br>
+        <form class="audio">
+          <h2> Audio on Completion?&nbsp;&nbsp;</h2>
+          <input class="audio form-control" type="radio" name="audio" id="yesA" value="1"><h3>Yes</h3>
+          <input class="form-control" type="radio" name="audio" id="noA" value="0"><h3>No</h3>
+        </form>
+      </div>
+    </div>
+      <div class="weather">
+        <button type="button" class="buttonClose btn">
+          <p style="font-size: large; font-weight: bold;">X</p>
+        </button>
+        <h1>Weather</h1>
+  
+        <form class="change-location my-4 text-center text-muted">
+          <label for="city">Type a Location to get the Weather</label>
+          <input type="text" name="city" class="form-control p-4" value=""/>
+          <input type="submit" value="Submit">
+        </form>
+  
+        <div class="weatherCard card d-none">
+          <img
+            src="https://via.placeholder.com/400x300"
+            alt=""
+            class="time card-img-top"
+          />
+          <div class="icon bg-light mx-auto text-center">
+            <img src="" alt="" />
+          </div>
+          <div class="text-uppercase mx-auto text-center details">
+            <h5 class="my-3">City Name</h5>
+            <div class="my-3">Weather Condition</div>
+            <div class="display-4 my-4">
+              <span>temp</span>
+              <span>&deg;F</span>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="abtscreen">
+        <br />
+        <img style="float: left; margin-top: 40px; margin-left: 20px; height: 200px; width: auto; display: flex; flex-direction: row;" src="assets/images/space.png">
+        <p class="text">Welcome to the best timer for focus on the internet!<br><br>Space Out is a unique, no-frills focus and pomodoro timer which ensures you get the most out of your work or study
+        <br><br>
+        With lists, a customisable timer, and weather, you are all set to conquer your day!
+        </p>
+        <div class="no">
+          <p>Unsure?</p>
+          <button class="thebtn">Take The Tour</button>
+        </div> 
+        <div class="no">
+          <p>Can't wait for more?</p>
+          <button class="thebtn">Download the App</button>
+        </div> 
+        <p class="text2">If you love this project, why not support it - and many other incredible websites - by becoming a member of <a href="">Coil</a>!</p>
+        <p style="text-align: center;" class="text2">Or, you could buy me a <a href="">coffee</a> :)</p>
+      </div>
+    <script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    
+  </body>
+
+</html>

@@ -1,0 +1,537 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: "Work Sans", monospace;
+  background-color: #36454f;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background: #36454f !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.buttonTodo img,
+.buttonSettings img {
+  height: 55px;
+  width: 55px;
+  border: 1px solid #9caf88;
+  border-radius: 50px;
+  box-shadow: 4px 4px 4px #9caf88;
+  background: rgba(255, 255, 255, 0.807);
+}
+
+.buttonWeather img {
+  height: 55px;
+  width: 55px;
+  border: 1px solid #9caf88;
+  border-radius: 50px;
+  box-shadow: 4px 4px 4px #9caf88;
+  background: rgba(255, 255, 255, 0.807);
+}
+
+.buttonTodo img:hover,
+.buttonWeather img:hover,
+.buttonSettings img:hover {
+  height: 58px;
+  width: 58px;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonTodo {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.buttonWeather {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.buttonSettings {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.buttonClose img {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #9caf88;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px #9caf88;
+  background: #9caf88;
+}
+
+.buttonClose img:hover {
+  height: 21px;
+  width: 21px;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+}
+
+.buttonTimedate {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  z-index: 1;
+}
+
+.clock,
+.date {
+  font-weight: bold;
+  color: #9caf88;
+  font-size: 18px;
+}
+
+.display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.display__time-left {
+  font-weight: 400;
+  margin-top: 15%;
+  font-size: 15rem;
+  color: white;
+  text-shadow: 8px 8px 0 #9caf88;
+}
+
+.display__end-time {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 0 #9caf88;
+}
+
+.timer__controls {
+  width: 100%;
+}
+
+.timer__button {
+  border: 0;
+  cursor: pointer;
+  color: white;
+  width: 125px;
+  font-weight: bold;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 0rem 2.5rem;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Work Sans", monospace;
+  background: #9caf88;
+  border-radius: 5%;
+  box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.707);
+}
+
+.timer__button:hover,
+.timer__button:focus {
+  background: #e8defc;
+  outline: 0;
+}
+
+.todo,
+.weather {
+  background: #9caf88a9;
+  height: fit-content;
+  z-index: 1;
+  border-radius: 5%;
+  box-shadow: 8px 8px 0 rgba(255, 255, 255, 0.308);
+}
+
+.todo,
+.settings {
+  width: 335px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.dragscroll {
+  max-height: 185px;
+  overflow-y: scroll;
+  cursor: grab;
+  cursor: -o-grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.settings,
+.timedate {
+  background: #36454fc2;
+  height: fit-content;
+  z-index: 1;
+  border-radius: 5%;
+  box-shadow: 8px 8px 0 rgba(255, 255, 255, 0.308);
+}
+
+h1 {
+  color: #36454f;
+  font-weight: bold;
+}
+
+.todo,
+.settings {
+  padding: 1rem;
+}
+
+.todo input[type="text"],
+.todo input[type="text"]:focus {
+  color: #fff;
+  border: none;
+  background: #9caf88;
+  max-width: 400px;
+}
+
+.todos li,
+.addTodo,
+.weatherCard {
+  font-weight: bold;
+  font-size: 16px;
+  color: #36454f;
+}
+
+#search,
+#addTodo {
+  font-weight: bold;
+  font-size: 16px;
+  color: #36454f;
+}
+
+.filtered {
+  display: none !important;
+}
+
+.delete {
+  cursor: pointer;
+}
+
+.weather {
+  padding: 1rem;
+  width: 285px;
+  font-weight: bold;
+}
+
+.weather label {
+  font-size: 12px;
+}
+
+.weather input[type="text"],
+.weather input[type="text"]:focus {
+  font-size: 16px;
+  font-weight: bold;
+  color: #36454f;
+  border: none;
+  background: #9caf88;
+  max-width: 285px;
+  margin-bottom: 5%;
+}
+
+.weatherCard {
+  height: 263px;
+  border-radius: 5%;
+}
+
+.card-img-top {
+  height: 263px;
+  border-radius: 5%;
+}
+
+.icon {
+  position: absolute;
+  bottom: 95px;
+  border-radius: 50%;
+  width: 100px;
+  z-index: 1;
+}
+
+.details {
+  background: rgba(255, 255, 255, 0.707);
+  position: absolute;
+  bottom: 0px;
+
+  width: 100%;
+  z-index: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+  color: #9caf88;
+}
+
+.settings form,
+.todo form {
+  flex: 1;
+  display: flex;
+}
+
+.todo input {
+  flex: 1;
+}
+
+input[type="submit"],
+input[type="submit"]:focus {
+  color: #36454f;
+  border: none;
+  background: #9caf886b;
+  max-width: 60px;
+  border-radius: 5%;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.116);
+  border-right: 1px solid rgba(0, 0, 0, 0.116);
+}
+
+input[type="submit"]:hover {
+  color: #9caf88;
+  background: inherit;
+  border: 1px solid #9caf88;
+  box-shadow: 2px 2px 0 #9caf88a9;
+}
+
+.settings input[type="text"],
+.settings input[type="text"]:focus {
+  color: rgb(0, 0, 0);
+  border: none;
+  background: #9caf88;
+  max-width: 400px;
+}
+
+#customTime {
+  font-weight: bold;
+  font-size: 16px;
+  color: #36454f;
+}
+
+h3 {
+  padding: 0 10% 0 4%;
+}
+
+.alerts {
+  text-align: center;
+  color: #9caf88;
+  font-family: "Work Sans", monospace;
+  font-weight: bold;
+  width: 350px;
+  padding-top: 1rem;
+  margin: auto;
+}
+
+.abtscreen {
+  margin-top: 0;
+  height: 800px;
+  background-color: #9caf88;
+  text-align: start;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  float: left;
+  margin-left: 100px;
+  font-size: large;
+  color: #36454f;
+  margin-bottom: 0;
+  max-width: 70%;
+}
+
+.text2 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  float: left;
+  text-align: center;
+  margin-left: 200px;
+  font-size: large;
+  color: #36454f;
+  margin-bottom: 0;
+  max-width: 90%;
+}
+
+.no {
+  text-align: center;
+  width: 400px;
+  float: left;
+  margin-top: 10%;
+  position: relative;
+  font-size: 20px;
+  font-family: inherit;
+  font-weight: 400;
+  color: #36454f;
+}
+
+.thebtn {
+  height: 80px;
+  width: 150px;
+  background-color: #36454f;
+  color: #9caf88 !important;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  border: 3px solid #9caf88;
+}
+
+.thebtn:hover {
+  background-color: #9caf88;
+  color: #36454f !important;
+  border: 3px solid #36454f;
+}
+
+a {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #708659;
+  text-decoration: none;
+}
+
+a:hover {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #647e49;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 369px) {
+  .timer {
+    z-index: 0;
+    margin-top: 20%;
+  }
+
+  .timer__controls {
+    margin-bottom: 40%;
+  }
+
+  .timer__button {
+    margin: 1rem 2.5rem;
+    font-size: 2rem;
+  }
+
+  .display__time-left {
+    font-size: 15rem;
+  }
+
+  .todo,
+  .settings,
+  .weather,
+  .timedate {
+    background: rgba(255, 255, 255);
+  }
+
+  .todo,
+  .settings,
+  .weather,
+  .timedate {
+    position: absolute;
+    top: 5%;
+  }
+
+  .weather {
+    left: 15%;
+  }
+
+  .todo {
+    left: 1.5%;
+  }
+
+  .settings {
+    right: 8%;
+  }
+}
+
+@media only screen and (min-width: 569px) {
+  .timer {
+    margin-top: 0%;
+  }
+
+  .timer__controls {
+    margin-bottom: 70%;
+  }
+
+  .todo {
+    left: 15%;
+  }
+
+  .settings {
+    right: 15%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .timer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    z-index: 0;
+    margin-top: 0%;
+  }
+
+  .timer__controls {
+    margin-bottom: 40%;
+  }
+
+  .timer__button {
+    margin: 0rem 2.5rem;
+    font-size: 3rem;
+  }
+  .display__time-left {
+    font-size: 22rem;
+  }
+
+  .todo,
+  .settings,
+  .weather,
+  .timedate {
+    background: rgba(255, 255, 255, 0.707);
+  }
+
+  .todo,
+  .weather {
+    top: 25%;
+    left: 5%;
+  }
+
+  .settings,
+  .timedate {
+    top: 25%;
+    right: 5%;
+  }
+  .timer__controls {
+    margin-bottom: 35%;
+  }
+}
