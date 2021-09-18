@@ -233,91 +233,13 @@ if (!localStorage.getItem("todos")) {
   list.innerHTML += html;
 }
 
-class Forecast {
-  constructor() {
-    this.key = "IL0UncemSD2sDHJUo6hhT1ZW7YV94eN6";
-    this.weatherURI =
-      "https://dataservice.accuweather.com/currentconditions/v1/";
-    this.cityURI =
-      "https://dataservice.accuweather.com/locations/v1/cities/search";
-  }
-  async updateCity(city) {
-    const cityDets = await this.getCity(city);
-    const weather = await this.getWeather(cityDets.Key);
 
-    return {
-      cityDets,
-      weather
-    };
-  }
-  async getCity(city) {
-    const query = `?apikey=${this.key}&q=${city}`;
-    const response = await fetch(this.cityURI + query);
-    const data = await response.json();
-    return data[0];
-  }
-  async getWeather(id) {
-    const query = `${id}?apikey=${this.key}`;
-    const response = await fetch(this.weatherURI + query);
-    const data = await response.json();
-    return data[0];
-  }
-}
+  
 
 
-const cityForm = document.querySelector(".change-location");
-const card = document.querySelector(".weatherCard");
-const details = document.querySelector(".details");
-const time = document.querySelector("img.time");
-const icon = document.querySelector(".icon img");
-const forecast = new Forecast();
 
-const updateUI = data => {
-  const { cityDets, weather } = data;
+ 
 
-  details.innerHTML = `
-    <h5 class="my-3">${cityDets.EnglishName}</h5>
-                <div class="my-3">${weather.WeatherText}</div>
-                <div class="display-4 my-4">
-                    <span>${weather.Temperature.Imperial.Value}</span>
-                    <span>&deg;F</span>
-                </div>
-    `;
-
-  const iconSrc = `assets/images/weather/icons/${weather.WeatherIcon}.svg`;
-  icon.setAttribute("src", iconSrc);
-
-  let timeSrc = weather.IsDayTime
-    ? "assets/images/weather/day.svg"
-    : "assets/images/weather/night.svg";
-
-  time.setAttribute("src", timeSrc);
-
-  if (card.classList.contains("d-none")) {
-    card.classList.remove("d-none");
-  }
-};
-
-cityForm.addEventListener("submit", e => {
-  e.preventDefault();
-
-  const city = cityForm.city.value.trim();
-  cityForm.reset();
-
-  forecast
-    .updateCity(city)
-    .then(data => updateUI(data))
-    .catch(err => console.log(err));
-
-  localStorage.setItem("city", city);
-});
-
-if (localStorage.getItem("city")) {
-  forecast
-    .updateCity(localStorage.getItem("city"))
-    .then(data => updateUI(data))
-    .catch(err => console.log(err));
-}
 
 document.customForm.addEventListener("submit", function(e) {
   e.preventDefault();
